@@ -249,7 +249,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/03/sssssssssssssss/" itemprop="url">
+                <a class="post-title-link" href="/2016/04/03/PackerNg/" itemprop="url">
                   Hello World
                 </a>
               
@@ -293,15 +293,25 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p><a href="http://www.jianshu.com/users/75d9b206c5ac/latest_articles" target="_blank" rel="external">简书</a><br><a href="https://github.com/MMMystery" target="_blank" rel="external">Github</a><br><a href="https://www.zhihu.com/people/dan-dan-92-17-7" target="_blank" rel="external">知乎</a></p>
+<p><code>多渠道打包</code>是App上线前必要的一个步骤，以往的多渠道打包方式大多是通过集成友盟服务等其它方式，然而速度并不是很快，可以说数量多的时候是很慢的，今天要介绍的PackerNg打包方式，速度上简直是完胜以往的各种多渠道打包方式。<br>PackerNg的GitHub链接：<a href="https://github.com/mcxiaoke/packer-ng-plugin" target="_blank" rel="external">https://github.com/mcxiaoke/packer-ng-plugin</a></p>
+<hr>
+<h2 id="PackerNg使用步骤"><a href="#PackerNg使用步骤" class="headerlink" title="PackerNg使用步骤"></a>PackerNg使用步骤</h2><p><code>PackerNg</code>有两种打包方式，一种是<code>渠道打包脚本</code>方式，另一种是<code>命令行打包脚本</code>方式。<code>渠道打包脚本</code>方式可按照GitHub上所说的步骤来，很简单。这里只说下比较酷的用<code>命令行打包脚本</code>方式。</p>
+<hr>
+<h3 id="命令行打包脚本方式"><a href="#命令行打包脚本方式" class="headerlink" title="命令行打包脚本方式"></a>命令行打包脚本方式</h3><p>命令行打包脚本方式也分两种。因为可以执行java脚本来做，也可以执行Python脚本来做，这两种任选一种。首先到<a href="https://github.com/mcxiaoke/packer-ng-plugin" target="_blank" rel="external">https://github.com/mcxiaoke/packer-ng-plugin</a> 里把项目下载下来，项目的根目录下有<code>markets.txt</code>。在项目的 tools 目录里有 <code>apkinfo.py</code> ，<code>ngpacker.py</code>和<code>ngpacker-x.x.x-capsule.jar</code>。拷贝这些文件出来，我们都可能用得上。</p>
+<p><code>markets.txt</code>文件包含了所有我们要打包的市场信息，可根据需求自行更改，#号后面是注释。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Google_Market#Google电子市场</span><br><span class="line">安卓市场#安卓市场</span><br><span class="line">Goapk_Market#安智市场</span><br><span class="line">Eoe_Market#优亿市场</span><br><span class="line">GFan_Market#机锋市场 </span><br><span class="line">Yingyonghui_Market#应用汇市场</span><br></pre></td></tr></table></figure></p>
+<p><code>apkinfo.py</code> ，<code>ngpacker.py</code>是Python脚本文件<br><code>ngpacker-x.x.x-capsule.jar</code>是java脚本文件</p>
+<hr>
+<p>####Java脚本方式<br>这种方式，我们需要的文件有：<code>ngpacker-x.x.x-capsule.jar</code>和<code>markets.txt</code><br>把这两个文件拷贝放到你自己项目的根目录下。然后在Terminal里切换到当前项目根目录下，开始执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ngpacker-x.x.x-capsule.jar [apk文件路径] [markets文件路径]</span><br></pre></td></tr></table></figure></p>
+<p>// 两个参数分别是：需要多渠道打包的apk文件路径，markets.txt文件路径。<br>例如;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ngpacker-1.0.2-capsule.jar ./app-release.apk ./markets.txt</span><br></pre></td></tr></table></figure></p>
+<p>执行完脚本后，等几秒钟，会自动在项目根目录下生成一个apks文件夹，所有渠道包都在apks文件夹里。</p>
+<hr>
+<p>####Python脚本方式</p>
+<p>这种方式，我们需要的文件有：<code>apkinfo.py</code> ，<code>ngpacker.py</code>和<code>markets.txt</code><br>把这三个文件拷贝放到你自己项目的根目录下。然后在Terminal里切换到当前项目根目录下，开始执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ngpacker.py [apk文件路径] [markets文件路径] [自定义的输出文件路径]</span><br></pre></td></tr></table></figure></p>
+<p>// 三个参数分别是：需要多渠道打包的apk文件路径，markets.txt文件路径，输出文件路径（这里和java脚本方式不一样，java脚本里头自己定义好了输出目录，但是Python脚本没有定义，所以需要我们自己来定义一个输出目录）。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ngpacker.py ./app-release.apk ./markets.txt ./myapks</span><br></pre></td></tr></table></figure></p>
+<p>执行完脚本后，等几秒钟，会自动在你之前自定义的输出文件下生成所有的渠道包。</p>
+<hr>
+<p>感谢阅读这篇学习博文。如果觉得有帮助，请点个赞-.-!</p>
 
           
         
